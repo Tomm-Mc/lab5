@@ -1,1 +1,32 @@
-<%# Update me %><%= @monsters.inspect %>
+<%# app/views/monsters/index.html.erb #%>
+
+<h1>Tabla de Mounstruos</h1>
+
+<%= link_to 'Crear Mounstruo', new_monster_path %>
+
+<h1>Lista de tweets</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <b> Nombre </b>
+    </div>
+    <div class="col-sm">
+      <b> Descripcion </b>
+    </div>
+  </div>
+  
+  <% @monsters.each do |monster| %>
+    <div class="row">
+        <div class="col-sm">
+          <%= link_to monster.name, monster %> 
+          <% if monster.tweets.count > 1 %>
+            <div class="twittero"> Twittero Destacado </div>
+          <% end %>
+        </div> 
+        <div class="col-sm"> 
+          <%= monster.description %> 
+        </div>
+        </div>
+  <% end %>
+</div>

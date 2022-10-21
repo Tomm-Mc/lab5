@@ -1,1 +1,37 @@
-<%# Update me %><%= @monster.inspect %>
+<%# app/views/monsters/show.html.erb #%>
+
+<h1> <%= @monster.name %> </h1> 
+
+<h1>Listado de tweets e info del monstruo</h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+     <b> Descripcion </b>
+    </div>
+    <div class="col-sm">
+    <b>  Tweets </b>
+    </div>
+  </div>
+  <div class="row">
+  <div class="col-sm">
+    <%= @monster.description %>
+  </div>
+  <div class="col-sm">
+  <% @monster.tweets.each do |tweet| %>
+    <div class="row">
+        <td> <%= tweet.content %> </td>
+    </div>
+  <% end %>
+  </div>
+</div>
+</div>
+
+<button class="button"> Eliminar monstruo </button>
+
+<div class="button">  <% link_to @monster.name, "" %> </div>
+
+<%= link_to "Editar Monstruo", edit_monster_path,class: "btn btn-outline-primary" %>
+
+<footer  style="width:100%; margin-left: 0px;"  >
